@@ -1,1 +1,2 @@
 !Help ~ Settings/Preferences
+developertool - f12
