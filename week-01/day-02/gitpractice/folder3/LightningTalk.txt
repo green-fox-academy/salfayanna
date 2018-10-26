@@ -1,0 +1,3 @@
+-Maya scrpting (MEL/Python)
+-Expressons
+-How to use expressions
