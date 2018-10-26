@@ -1,2 +1,3 @@
 !Help ~ Settings/Preferences
 developertool - f12
+refresh page - f5
