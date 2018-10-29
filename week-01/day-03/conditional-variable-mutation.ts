@@ -1,3 +1,6 @@
+'use strict';
+export {};
+
 let a: number = 24;
 let out: number = 0;
 
@@ -40,15 +43,14 @@ let isBonus: boolean = false;
 // and is_bonus is false decrement c by 1
 // if is_bonus is true c should remain the same
 
-if (credits >= 50 && isBonus == false) {
+if (credits >= 50 && !isBonus) {
 
-c -= 2 } else if (credits < 50 && isBonus == false) { 
+    c -= 2
 
-    c -=1
+} else if (credits < 50 && !isBonus) { 
 
-} else if (isBonus == true) {
+    c--
 
-    c
 }
 
 console.log(c);
