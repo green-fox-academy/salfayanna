@@ -1,3 +1,6 @@
+'use strict';
+export {};
+
 let a: number = 123;
 let b: number = 526;
 

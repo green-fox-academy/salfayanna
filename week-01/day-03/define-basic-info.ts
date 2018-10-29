@@ -1,3 +1,6 @@
+'use strict';
+export {};
+
 let Myname: string = "Anna Rita Salfay"
 let Myage: number = 29
 let Myheight: number = 1.66

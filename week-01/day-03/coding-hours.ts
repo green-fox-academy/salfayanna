@@ -1,3 +1,6 @@
+'use strict';
+export {};
+
 /*
 Print how many hours is spent with coding in a semester by an attendee,
 if the attendee only codes on workdays.
