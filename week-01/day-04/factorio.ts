@@ -4,18 +4,15 @@ export {};
 // -  Create a function called `factorio`
 //    that returns it's input's factorial
 
-let n:number = 5;
+let counter:number = 5;
 
-function factorio(n:number) {
-
-for(f = 0; f < n + 1; f++) {
-
-    console.log(f);
-    
-
+function factorio(counter:number) {
+    let sum:number = 1;
+    for( let index = 1; index < counter + 1; index++) {
+        sum *= index;   
+    }
+    return sum;
 }
 
-}
-
-factorio(n);
+console.log(factorio(counter));
 
