@@ -6,7 +6,11 @@ export {};
 //    (can have multiple number of arguments)
 
 
-function printParams( ..Params) {
+function printParams(...any){
 
-    console.log(..Params);
-}
+        for (let i: number = 0; i < any.length; i++){
+        console.log(any[i]);
+    }
+ 
+ }
+ printParams("random", "puppy", 9, "ejj")
