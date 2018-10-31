@@ -1,5 +1,5 @@
 'use strict';
-export {};
+export { };
 
 
 // -  Create variable named `name` and assign the value `Greenfox` to it
@@ -8,13 +8,13 @@ export {};
 //     -  Prepare for the special case when no parameters are given
 // -  Greet `name`
 
-let name:string = "Greenfox" 
+let name: string = "Greenfox"
 
 function greet() {
 
       console.log("Greetings, dear " + name);
 
-   }
+}
 
 greet();
 
