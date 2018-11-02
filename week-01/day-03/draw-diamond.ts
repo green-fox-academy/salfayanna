@@ -3,9 +3,9 @@ export {};
 
 let lineCount: number = 7;
 
-  for (var i = 0; i < lineCount; i++) {
+  for (var i = 0; i < lineCount / 2; i++) {
     var str = '';
-    for (var j = 1; j < lineCount-i; j++) {
+    for (var j = 1; j < lineCount-i/; j++) {
       str = str + ' ';
     }
     for (var k = 1; k <= (2*i+1); k++) {
