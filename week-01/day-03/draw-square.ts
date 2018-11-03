@@ -1,5 +1,5 @@
 'use strict';
-export {};
+export { };
 
 let lineCount: number = 6;
 let empty = " "
@@ -17,15 +17,9 @@ let fill = '%'
 // The square should have as many lines as lineCount is
 
 for (let row = 0; row < lineCount; row++) {
-
   if (row === 0 || row === lineCount - 1) {
-
-console.log(fill.repeat(lineCount));
-
+    console.log(fill.repeat(lineCount));
   } else {
-
-console.log(fill + empty.repeat(lineCount-2) + fill);
-
+    console.log(fill + empty.repeat(lineCount - 2) + fill);
   }
-
 }
