@@ -29,7 +29,7 @@ for (let row = 0; row < lineCount; row++) {
     for (let k = 1; k <= (row); k++) {
       strg = strg + ' ';
     }
-    for (let j = 0; j < 2 * (lineCount - row) - 1; j++) {
+    for (let j = 1; j < 2 * (lineCount - row); j++) {
       strg = strg + '*';
     }
   }
