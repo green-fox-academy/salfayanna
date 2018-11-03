@@ -1,16 +1,17 @@
 'use strict';
-export {};
+export { };
 
 let a: number = 24;
 let out: number = 0;
 
 // if a is even increment out by one
+//
 
 if (a % 2 === 0) {
 
     out++;
-    
-    }
+
+}
 
 console.log(out);
 
@@ -23,13 +24,15 @@ let out2: string = '';
 
 if (b > 10 && b < 20) {
 
-out2 = 'Sweet!'} else if (b < 10) {
+    out2 = 'Sweet!'
+} else if (b < 10) {
 
-    out2 = 'Less!'} else if (b > 20) {
+    out2 = 'Less!'
+} else if (b > 20) {
 
-        out2 = 'More!'
+    out2 = 'More!'
 
-    }
+}
 
 console.log(out2);
 
@@ -47,7 +50,7 @@ if (credits >= 50 && !isBonus) {
 
     c -= 2
 
-} else if (credits < 50 && !isBonus) { 
+} else if (credits < 50 && !isBonus) {
 
     c--
 
@@ -55,7 +58,7 @@ if (credits >= 50 && !isBonus) {
 
 console.log(c);
 
-let d: number =  8;
+let d: number = 8;
 let time: number = 120;
 let out3: string = '';
 
