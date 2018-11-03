@@ -1,11 +1,13 @@
 'use strict';
-export {};
+export { };
 
 let a: number = 123;
 let b: number = 526;
+let temp: number;
 
-a = 526;
-b = 123;
+temp = a;
+a = b;
+b = temp;
 
-console.log (a);
-console.log (b);
+console.log(a);
+console.log(b);
