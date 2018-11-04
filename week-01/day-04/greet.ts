@@ -8,13 +8,16 @@ export { };
 //     -  Prepare for the special case when no parameters are given
 // -  Greet `name`
 
-let name: string = "Greenfox"
+let name: string = 'Greenfox'
 
-function greet() {
+function greet(username?: string) {
+      let greeting: string = 'Greetings, dear ';
+      if (username) {
+            return (greeting + username);
+      } else {
 
-      console.log("Greetings, dear " + name);
-
+            return 'Name parameter missing';
+      }
 }
 
-greet();
-
+console.log(greet(name));
