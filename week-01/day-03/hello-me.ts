@@ -1,4 +1,5 @@
 'use strict';
-export {};
+export { };
 
-console.log ("Hello Anna");
+let me: string = 'Anna';
+console.log('Hello' + me);
