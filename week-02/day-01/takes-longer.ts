@@ -11,8 +11,7 @@ let splitedQuote: string[] = quote.split(' ');
 console.log(splitedQuote);
 
 let startPosition: number = splitedQuote.indexOf('you');
-console.log(splitedQuote.indexOf('you'));
-
+//console.log(splitedQuote.indexOf('you'));
 splitedQuote.splice(startPosition, 0, missingPart);
 quote = splitedQuote.join(' ');
 
