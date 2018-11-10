@@ -9,23 +9,20 @@ let freq: number = 10;
 let startNumbX: number = 0;
 let StartNumbY: number = 0;
 
-function drawthis(a: number, b: number, c: number) {
-  ctx.strokeStyle = "green";
+function drawthis(startPos: number, endPos: number, maxPos: number, colorBottom: string, colorTop: string) {
+  ctx.strokeStyle = colorBottom;
   ctx.beginPath();
-  ctx.moveTo(a, b);
-  ctx.lineTo(b, c);
+  ctx.moveTo(startPos, endPos);
+  ctx.lineTo(endPos, maxPos);
+  ctx.stroke();
+  ctx.strokeStyle = colorTop;
+  ctx.beginPath();
+  ctx.moveTo(endPos, startPos);
+  ctx.lineTo(maxPos, endPos);
   ctx.stroke();
 }
 
-function drawthisPurple(a: number, b: number, c: number) {
-  ctx.strokeStyle = "purple";
-  ctx.beginPath();
-  ctx.moveTo(b, a);
-  ctx.lineTo(c, b);
-  ctx.stroke();}
-
-for (let i: number = 0; i <= canvas.width; i++) {
-  drawthis(startNumbX, StartNumbY, canvas.width);
-  drawthisPurple(startNumbX, StartNumbY, canvas.width);
+for (let i: number = 0; i <= canvas.width / freq; i++) {
+  drawthis(startNumbX, StartNumbY, canvas.width, 'lime', 'turquoise');
   StartNumbY += freq;
 }
