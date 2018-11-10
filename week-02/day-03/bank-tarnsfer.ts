@@ -8,10 +8,10 @@ const accounts: any[] = [
 ];
 
 function getNameAndBalance(accountNumber: number) {
-  let found = accounts.find(function(element) {
+  let found = accounts.find(function (element) {
     return element.accountNumber === accountNumber;
   });
-  if(found){
+  if (found) {
     console.log(`${found.clientName}, ${found.balance}`);
   } else {
     console.log('404 - account not found')
@@ -20,18 +20,23 @@ function getNameAndBalance(accountNumber: number) {
 
 getNameAndBalance(11234543);
 
-// Create function that returns the name and balance of cash on an account in a list
-// getNameAndBalance(11234543);
-// should return: ['Igor', 203004099.2]
+function transferAmount(array: any[], fromAccountNumber, toAccountNumber, amountOfCash) {
+  let from: any = array.find(function (element) {
+    return element.accountNumber === fromAccountNumber;
+  });
+  let to: any = array.find(function (element) {
+    return element.accountNumber === toAccountNumber;
+  });
+  if(from && to && from.balance - amountOfCash >= 0) {
+    from.balance - amountOfCash;
+    to.balance + amountOfCash;
+    console.log(accounts);
+  } else if (!from || !to){
+    console.log('404 - account not found');
+  }
+}
 
-// Create function that transfers an amount of cash from one account to another
-// it should have four parameters:
-//  - the accounts
-//  - from accountNumber
-//  - to accountNumber
-//  - amount of cash to transfer
-//
-// Log "404 - account not found" if any of the account numbers don't exist to the console.
+transferAmount(accounts, 23456311, 43546731, 500);
 
 // transferAmount(accounts, 43546731, 23456311, 500.0);
 //After printing the "accounts" it should look like:
