@@ -14,9 +14,9 @@ const students: any[] = [
 
 function candyCounter(array1: any[]) {
   let candyOwners: string = '';
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].candies > 4) {
-      candyOwners += students[i].name + ', ';
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i].candies > 4) {
+      candyOwners += array1[i].name + ', ';
     }
   }
   return candyOwners;
@@ -30,10 +30,10 @@ console.log(candyCounter(students));
 function candyAvarage(array1: any[]) {
   let sum: number = 0;
   let avg: number = 0;
-  for (let i: number = 0; i < students.length; i++) {
-    sum += students[i].candies;
+  for (let i: number = 0; i < array1.length; i++) {
+    sum += array1[i].candies;
   }
-  avg = sum / students.length;
+  avg = sum / array1.length;
   return avg;
 }
 
