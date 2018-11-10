@@ -4,50 +4,49 @@ const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 //1 XP Divide the canvas into 4/16/64 equal parts and repeat the line play pattern in each quarter
 
-let freq2: number = 10;
+async function delay(milliseconds: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
+}
 
-let startNumbX2: number = 0;
-let StartNumbY2: number = 0;
-
-function drawthis2(a: number, b: number, c: number) {
-  ctx.strokeStyle = "green";
+function drawThis_2(firstPosition: number, secondPosition: number, bottomColor: string, topColor: string, step: number, tileSize: number) {
+  ctx.strokeStyle = bottomColor;
   ctx.beginPath();
-  ctx.moveTo(a, b);
-  ctx.lineTo(b ,c);
+  ctx.moveTo(firstPosition, secondPosition + step);
+  ctx.lineTo(firstPosition + step, secondPosition + tileSize);
+  ctx.stroke();
+  ctx.strokeStyle = topColor;
+  ctx.beginPath();
+  ctx.moveTo(firstPosition + step, secondPosition);
+  ctx.lineTo(firstPosition + tileSize, secondPosition + step);
   ctx.stroke();
 }
 
-function drawthisPurple2(a: number, b: number, c: number) {
-  ctx.strokeStyle = "purple";
-  ctx.beginPath();
-  ctx.moveTo(b, a);
-  ctx.lineTo(c, b);
-  ctx.stroke();}
-
-  function drawthis3(a: number, b: number, c: number) {
-    ctx.strokeStyle = "green";
-    ctx.beginPath();
-    ctx.moveTo(a , b + canvas.height / 2);
-    ctx.lineTo(b + canvas.height / 2,c);
-    ctx.stroke();
+async function drawTile(bottomColor: string, topColor: string, frequency: number, tileSize: number, xPos: number, yPos: number, tileCount: number) {
+  for (let k: number = 0; k <= canvas.width / frequency / tileCount; k++) {
+    drawThis_2(xPos, yPos, bottomColor, topColor, k * frequency, tileSize);
+    await delay(50);
   }
-  
-  function drawthisPurple3(a: number, b: number, c: number) {
-    ctx.strokeStyle = "purple";
-    ctx.beginPath();
-    ctx.moveTo(b + canvas.width / 2, a);
-    ctx.lineTo(c, b + canvas.width / 2);
-    ctx.stroke();}
-
-for (let i: number = 0; i <= canvas.width / 20; i++) {
-  drawthis2(startNumbX2, StartNumbY2, canvas.width / 2);
-  drawthisPurple2(startNumbX2, StartNumbY2, canvas.width /2);
-  StartNumbY2 += freq2;
 }
 
-for (let i: number = 0; i <= canvas.width / 20; i++) {
-  drawthis2(startNumbX2 + canvas.width / 2, StartNumbY2, canvas.width);
-  drawthisPurple2(startNumbX2 + canvas.width / 2, StartNumbY2, canvas.width);
-  StartNumbY2 += freq2;
+
+function drawMosaic(tileCount: number, bottomColor: string, topColor: string, frequency: number) {
+  let tileSize: number = canvas.width / tileCount;
+
+  for (let i: number = 0; i < tileCount; i++) {
+    for (let j: number = 0; j < tileCount; j++) {
+      drawTile(bottomColor, topColor, frequency, tileSize, tileSize * i, tileSize * j, tileCount);
+    }
+  }
 }
 
+drawMosaic(14, 'orange', 'violet', 5);
+
+
+
+// for (let i: number = 0; i <= canvas.width / 20; i++) {
+//   drawthis2(startNumbX2 + canvas.width / 2, StartNumbY2, canvas.width);
+//   drawthisPurple2(startNumbX2 + canvas.width / 2, StartNumbY2, canvas.width);
+//   StartNumbY2 += freq2;
+// }
