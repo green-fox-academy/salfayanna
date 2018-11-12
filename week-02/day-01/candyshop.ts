@@ -15,9 +15,13 @@ function sweets(list: string[]) {
     if (typeof element === 'string') {
       candies.push(element);
     }
+   if ( typeof element === 'number') {
+     candies.push('Croissant')
+   }
+   if (typeof element === 'boolean') {
+     candies.push('Ice cream')
+   }
   })
-  candies.splice(1, 0, 'Croissant');
-  candies.splice(3, 0, 'Ice cream');
   return candies
 }
 sweets(shopItems);
