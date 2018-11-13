@@ -40,30 +40,16 @@ class DiceSet {
 }
 
 let diceSet = new DiceSet();
-diceSet.roll();
-diceSet.getCurrent();
-console.log("------------------");
-diceSet.reroll();
-diceSet.getCurrent();
-console.log("------------------");
-diceSet.getCurrent(5);
-diceSet.reroll();
-diceSet.getCurrent();
-console.log("------------------");
-diceSet.reroll(4);
-diceSet.getCurrent();
-
 
 function getAllSix(diceset: object) {
   diceSet.roll();
-  diceSet.getCurrent();
-  let i: number = 0;
-  while () {
+  while (!diceSet.dices.every(element =>  element === 6)) {
+    console.log(diceSet.dices)
+    for(let i:number = 0; i < diceSet.dices.length; i++)
     if (diceSet.dices[i] !== 6) {
       diceSet.reroll(i);
     }
   }
-  diceSet.getCurrent();
   console.log(diceSet.dices);
 }
 
