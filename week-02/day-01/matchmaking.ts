@@ -8,17 +8,17 @@ let girls: string[] = ['Eve', 'Ashley', 'Claire', 'Kat', 'Jane'];
 let boys: string[] = ['Joe', 'Fred', 'Tom', 'Todd', 'Neef', 'Jeff'];
 let pairs: string[] = [];
 
-function makingMatches(array1: string[], array2: string[]) {
-  let longerArray;
-  if (array1.length < array2.length) {
-    longerArray = array2.length;
+function makingMatches(girls: string[], boys: string[]): string[] {
+  let longerArray: number = 0;
+  if (girls.length < boys.length) {
+    longerArray = boys.length;
   } else {
-    longerArray = array1.length;
+    longerArray = girls.length;
   }
   for (let i = 0; i < longerArray; i++) {
-    let newPairs: string = array1[i] + ' + ' + array2[i];
+    let newPairs: string = `${girls[i]} + ${boys[i]}`;
     pairs.push(newPairs);
-    if (array1[i] === undefined) {
+    if (girls[i] === undefined) {
       pairs.push('Jeff is lonely');
     }
   }

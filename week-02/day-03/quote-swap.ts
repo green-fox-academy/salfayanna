@@ -8,17 +8,14 @@ export { };
 // Create a function called quoteSwap().
 
 let words: string[] = ['What', 'I', 'do', 'create,', 'I', 'cannot', 'not', 'understand.'];
-let a: number = words.indexOf('do');
-let b: number = words.indexOf('cannot');
+let doIndex: number = words.indexOf('do');
+let cannotIndex: number = words.indexOf('cannot');
 
-words[a];
-words[b];
-let z;
-
-function quoteSwap(array: string[]) {
-  z = words[a];
-  words[a] = words[b];
-  words[b] = z;
+function quoteSwap(array: string[]): string {
+  let temp: string = '';
+  temp = words[doIndex];
+  words[doIndex] = words[cannotIndex];
+  words[cannotIndex] = temp;
   return array.join(' ');
 }
 

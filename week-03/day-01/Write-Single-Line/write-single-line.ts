@@ -1,5 +1,3 @@
-import { fileURLToPath } from "url";
-
 'use strict';
 export { };
 const fs = require('fs');
@@ -19,11 +17,11 @@ function readFile(fileName: string): string {
 
 function writeSingleLine(fileName: string): string {
   let fileContent: string = readFile(fileName);
-if(fileContent !== null){
-  fs.writeFileSync(`${fileName}`, 'Anna Rita Salfay', 'utf-8' );
-  return fileName;
-}
-throw new Error ('Unable to write file: my-file.txt');
+  if (fileContent !== null) {
+    fs.writeFileSync(`${fileName}`, 'Anna Rita Salfay', 'utf-8');
+    return fileName;
+  }
+  throw new Error('Unable to write file: my-file.txt');
 }
 
 writeSingleLine('my-file.txt');
