@@ -1,7 +1,7 @@
 'use strict';
 export { };
 
-class Sharpie {
+export class Sharpie {
   color: string
   width: number
   inkAmount: number = 100;
