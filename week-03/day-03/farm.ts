@@ -20,9 +20,17 @@ class Farm {
     this.slots = freeSpace;
   }
 
-  breed(animal: Animal) {
+  // breed(animal: Animal) {
+  //   if (this.listOfAnimals.length < this.slots) {
+  //     this.listOfAnimals.push(animal);
+  //     this.slots--;
+  //   }
+  //   return this.listOfAnimals;
+  // }
+  breed() {
     if (this.listOfAnimals.length < this.slots) {
-      this.listOfAnimals.push(animal);
+      let newAnimal = new Animal();
+      this.listOfAnimals.push(newAnimal);
       this.slots--;
     }
     return this.listOfAnimals;
@@ -55,6 +63,7 @@ function initializeAnimals(): Animal[] {
  let aFarmAholElunk = new Farm(animals, 20);
 //  console.log(aFarmAholElunk);
 //  aFarmAholElunk.breed(bambi);
+console.log(aFarmAholElunk.breed());
 //  console.log(aFarmAholElunk);
- console.log(aFarmAholElunk.slaughter());
+// console.log(aFarmAholElunk.slaughter());
  //console.log(aFarmAholElunk);
