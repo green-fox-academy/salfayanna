@@ -1,13 +1,12 @@
 'use strict';
-export { };
 
-class Animal {
-  hungerValue: number = 50;
-  thirstValue: number = 50;
+export class Animal {
+  hungerValue: number;
+  thirstValue: number;
 
-  constructor() {
-
-
+  constructor(hunger: number = 50, thirst: number = 50) {
+    this.hungerValue = hunger;
+    this.thirstValue = thirst;
   }
   canEat() {
     this.hungerValue -= 1;
@@ -18,11 +17,11 @@ class Animal {
   }
 
   canPlay() {
-    this.hungerValue += 1; 
+    this.hungerValue += 1;
     this.thirstValue += 1;
   }
 }
 
-let kiskutya = new Animal;
-kiskutya.canDrink();
-console.log(kiskutya.thirstValue);
+// let kiskutya = new Animal;
+// kiskutya.canDrink();
+// console.log(kiskutya.thirstValue);
