@@ -12,8 +12,10 @@ export class Station {
   }
 
   refill(car: Car){
-    this.gasAmount -= car.capacity;
-    car.gasAmount += car.capacity;
+    if(this.gasAmount > 0 && this.gasAmount>= car.gasAmount) {
+      this.gasAmount -= car.gasAmount;
+      car.gasAmount += (car.capacity - car.gasAmount);
+    } else { console.log('Not enough gas')}
   }
 
 }
