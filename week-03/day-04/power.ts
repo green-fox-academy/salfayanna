@@ -1,4 +1,4 @@
-'use struct'
+'use strict'
 export { };
 
 // Given base and n that are both 1 or more, compute recursively (no loops)

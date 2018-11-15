@@ -1,4 +1,4 @@
-'use struct'
+'use strict'
 export { };
 
 // Create a recursive function called `refactorio`

@@ -1,4 +1,4 @@
-'use struct'
+'use strict'
 export { };
 
 // The fibonacci sequence is a famous bit of mathematics, and it happens to
