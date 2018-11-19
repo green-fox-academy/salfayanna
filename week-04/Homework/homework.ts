@@ -115,18 +115,20 @@ let mentor = new Mentor();
 people.push(mentor);
 let sponsor = new Sponsor();
 let elon = new Sponsor('Elon Musk', 46, 'male', 'SpaceX');
+people.push(sponsor);
+people.push(elon);
 
 student.skipDays(3);
 
-for (let i = 0; i < 6; i++) {
+for (let i:number = 0; i < 4; i++) {
   elon.hire();
 }
 
-for (let i = 0; i < 4; i++) {
+for (let i:number = 0; i < 6; i++) {
   sponsor.hire();
 }
 
 for (let person of people) {
   person.introduce();
   person.getGoal();
-}
+} 
