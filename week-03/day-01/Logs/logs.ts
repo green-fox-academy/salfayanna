@@ -14,21 +14,18 @@ function readFile(fileName: string): string {
   }
 }
 
-function getData(fileName: string): number[] {
+function getData(fileName: string): any {
   let fileData: string = readFile(fileName);
-  let index: number = 0;
   let ipAdress: any[] = [];
   if (fileData !== null) {
     fileData.split('\r\n').forEach(e => {
-      e.split(' ').forEach(elem => {
-        if (elem[index] === elem[4]) {
-          ipAdress.push(elem[4]);
-        }
+      e.split('   ').forEach((elem, index) => {
+        if(elem[index] === elem[3])
+        ipAdress.push(elem);
       })
-    })
-  }
-  return ipAdress;
+  })
 }
+return  console.log(ipAdress);
+    }
 
-
-console.log('source.txt');
+getData('source.txt');
