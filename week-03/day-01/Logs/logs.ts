@@ -47,6 +47,5 @@ function getRatio(fileName: string): number {
   return ratio;
 }
 
-//getData('source.txt');
 console.log(getUniqeIps('source.txt'));
 console.log(getRatio('source.txt'));
