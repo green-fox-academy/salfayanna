@@ -14,7 +14,7 @@ function readFile(fileName: string): string {
   }
 }
 
-function getData(fileName: string): any {
+function getUniqeIps(fileName: string): any {
   let fileData: string = readFile(fileName);
   let ipAdress: any[] = [];
   if (fileData !== null) {
@@ -25,7 +25,10 @@ function getData(fileName: string): any {
       })
   })
 }
-return  console.log(ipAdress);
+ let uniqueIpAdresses: any[] = [];
+ uniqueIpAdresses.push(new Set(ipAdress))
+return uniqueIpAdresses;
     }
 
-getData('source.txt');
+//getData('source.txt');
+console.log(getUniqeIps('source.txt'));
