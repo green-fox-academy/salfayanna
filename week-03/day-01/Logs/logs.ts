@@ -14,7 +14,7 @@ function readFile(fileName: string): string {
   }
 }
 
-function getData(fileName: string) {
+function getData(fileName: string): number[] {
   let fileData: string = readFile(fileName);
   let index: number = 0;
   let ipAdress: any[] = [];
@@ -24,11 +24,11 @@ function getData(fileName: string) {
         if (elem[index] === elem[4]) {
           ipAdress.push(elem[4]);
         }
-      }
+      })
     })
   }
   return ipAdress;
 }
-  
 
-  console.log('source.txt');
+
+console.log('source.txt');
