@@ -1,6 +1,7 @@
 'use strict'
+import { Person } from "./Person";
 
-class Sponsor extends Person {
+export class Sponsor extends Person {
   company: string;
   hiredStudents: number;
 

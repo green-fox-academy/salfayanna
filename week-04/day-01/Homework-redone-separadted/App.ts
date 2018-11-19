@@ -1,4 +1,9 @@
 'use strict'
+import { Person } from "./Person";
+import { Mentor } from "./Mentor";
+import { Student } from "./Student";
+import { Sponsor } from "./Sponsor";
+import { Cohort } from "./Cohort";
 
 let people = [];
 

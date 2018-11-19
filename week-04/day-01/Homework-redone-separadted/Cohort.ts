@@ -1,6 +1,8 @@
 'use strict'
+import { Mentor } from "./Mentor";
+import { Student } from "./Student";
 
-class Cohort {
+export class Cohort {
   name: string;
   students: Student[]
   mentors: Mentor[]

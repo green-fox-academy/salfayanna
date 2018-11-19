@@ -1,6 +1,7 @@
 'use strict'
+import { Person } from "./Person";
 
-class Mentor extends Person {
+export class Mentor extends Person {
   level: string;
 
   constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', level: string = 'intermediate') {

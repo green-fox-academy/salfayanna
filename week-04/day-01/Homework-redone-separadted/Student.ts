@@ -1,6 +1,7 @@
 'use strict'
+import { Person } from "./Person";
 
-class Student extends Person {
+export class Student extends Person {
   previousOrganization: string;
   skippedDays: number;
 
