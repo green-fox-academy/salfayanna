@@ -22,9 +22,9 @@ class Thing implements Comparable {
   }
 
   compareTo(other: Thing): number {
-    if (this.completed < other.completed) {
+    if (this.completed && !other.completed) {
       return -1;
-    } else if (this.completed > other.completed) {
+    } else if (!this.completed && other.completed) {
       return 1;
     } else {
       return 0;
