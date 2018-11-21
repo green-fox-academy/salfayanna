@@ -8,7 +8,5 @@ export abstract class Instrument {
   }
 
 
-  play() {
-
-  }
+  abstract play(): void;
 }
