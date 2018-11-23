@@ -4,36 +4,33 @@ import { Tree } from "./tree";
 import { Flower } from "./flower";
 
 class Garden {
-  listOfPlants: Plant[] = [];
-  constructor(listOfPlants: Plant[]) {
-    this.listOfPlants = listOfPlants;
+  private plantList: Plant[] = [];
+  constructor(plantList: Plant[]) {
+    this.plantList = plantList;
   }
 
-  giveWater(amountOfGivenWater: number, listOfPlants: number[]): void {
-    let numberOfFlowers: number = 0;
-    let numberOfTrees: number = 0;
-
-    for (let i: number = 0; i < this.listOfPlants.length; i++) {
-      if (this instanceof Tree) {
-        numberOfTrees++;
+  giveWater(givenWater: number) {
+    console.log(`Watering with ${givenWater}`);
+    this.plantList.forEach(element => {
+            if (element.getWaterNeeds()) {
+        console.log(`The ${element.getColor()} ${element.getType()} needs water.`)
+        element.setWaterLevel((givenWater / this.plantList.length) * element.getWaterMiltiplier());
       } else {
-        numberOfFlowers++;
+        console.log(`The ${element.getColor()} ${element.getType()} doesn't need water.`);
       }
-    }
-
-//     listOfPlants.forEach(function(element, index,) => {
-// this.listOfPlants.currentWaterAmount < 5
-    }
+    });
+    console.log('\r\n');
   }
 }
 
+let blue = new Flower('blue', 4);
+let yellow = new Flower('yellow', 3.2);
+let orange = new Tree('orange', 9);
+let purple = new Tree('purple', 7.3);
 
-// if (this instanceof Tree && listOfPlants[inddex].getWaterNeeds() < 10) {
-//   plant.currentWaterAmount += (amountOfGivenWater / numberOfTrees) * 0.4;
-//   return console.log(`The ${plant.getColor()} Tree needs water`);
-// } else if (this instanceof Flower && plant.getWaterNeeds() < 5) {
-//   plant.currentWaterAmount += (amountOfGivenWater / numberOfFlowers) * 0.75;
-//   return console.log(`The ${plant.getColor()} Flower needs water`);
-// } else {
-//   console.log(`The ${plant.getColor} ${} doesn't need water`);
-// }
+let plants: Plant[] = [blue, yellow, orange, purple];
+
+let garden = new Garden(plants);
+//console.log(garden);
+garden.giveWater(40);
+garden.giveWater(70);
