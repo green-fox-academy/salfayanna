@@ -4,21 +4,22 @@ export class Aircraft {
   protected maxAmmo: number;
   protected baseDamage: number;
   protected currentAmmo: number = 0;
-  protected allDamage: number;
   protected type: string;
 
-  fight(): void{
-    this.allDamage = this.currentAmmo * this.baseDamage;
+  fight(): number{
+    let allDamage: number = this.currentAmmo * this.baseDamage;
     this.currentAmmo = 0;
+    return allDamage;
   }
 
-  refill(number: number): number {
-    if (this.currentAmmo + number <= this.maxAmmo) {
-      this.currentAmmo += number;
+  refill(ammo: number): number {
+    if (this.currentAmmo + ammo <= this.maxAmmo) {
+      this.currentAmmo += ammo;
       return 0;
     } else {
+      let ammoBefore: number = this.currentAmmo;
       this.currentAmmo = this.maxAmmo;
-      return (this.currentAmmo + number) - this.maxAmmo;
+      return (ammoBefore + ammo) - this.maxAmmo;
     }
   }
 
@@ -34,9 +35,10 @@ export class Aircraft {
     return true;
   }
 
-  getAllDamage(){
-    return this.allDamage;
+  getMaxDamage(){
+    return this.currentAmmo * this.baseDamage;
   }
+
 
 }
 
