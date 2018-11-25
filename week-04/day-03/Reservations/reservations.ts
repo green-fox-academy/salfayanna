@@ -1,25 +1,15 @@
 'use strict'
 
-interface Reservationy {
-  getDowBooking(): string;
-  getCodeBooking(): string;
-}
+import {Reservationy} from "./reservationy-interface";
 
-class Reservation implements Reservationy{
-days: string[];
-letters: string[];
-
-constructor(days: string[]){
-  this.days = days;
-}
+export class Reservation implements Reservationy{
+private days:string[] = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
   getDowBooking(): string{
-
+return this.days[Math.floor(Math.random()*this.days.length)];
   }
 
   getCodeBooking(): string{
-
+   return Math.random().toString(36).substr(2,8).toLocaleUpperCase();
   }
 }
-
-let days:string[] = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
