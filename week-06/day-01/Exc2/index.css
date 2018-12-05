@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: cornflowerblue;
+  width:500px;
+  height:250px;
+}
+
+.item {
+width: 500px;
+height: 250px;
+}
+
+.yellow{
+background-color: darkgoldenrod;
+width: 500px;
+height: 250px;
+}
+
+.purple{
+position: absolute;
+z-index: 1;
+margin-top: 100px;
+background-color: fuchsia;
+width: 50px;
+height: 50px;
+}
