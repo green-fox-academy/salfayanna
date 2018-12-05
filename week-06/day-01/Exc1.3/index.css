@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: cornflowerblue;
+  width:900px;
+  height:225px;
+}
+
+.item {
+  width: 225px;
+  height: 225px;
+}
+
+.green{
+background-color:green;
+width: 25%;
+height: 100%;
+}
+
+.yellow{
+background-color: darkgoldenrod;
+width: 50%;
+height: 100%;
+}
+
+.purple{
+background-color: fuchsia;
+width: 25%;
+height: 100%;
+}
