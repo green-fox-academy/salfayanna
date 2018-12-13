@@ -4,82 +4,88 @@
 }
 
 body{
-  background-color: lightgray;
+  margin: 0;
+  padding: 0;
+  /*background-image: url(3.png);
+  background-position: center;
+  background-size: 50%;*/
+  background-color: black;
+  font-family: Arial;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .main{
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-top: 20%;
-  width: 100%;
-  height: 100%;
+}
+
+
+.loginbox{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 450px;
+  height: 450px;
+  background: white;
+  border: 2px solid black;
+  position: absolute;
+  margin-top: 8%;
+}
+
+.avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: absolute;
+  margin-top: -12%;
 }
 
 h1{
-  font-family: Arial;
+  padding: 70px 0px 30px 0px; /*top-right-bottom-left*/ 
   font-weight: lighter;
-  font-size: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  text-align: center;
+  letter-spacing: -0.05em;
 }
 
-.title{
-  text-align: left;
+.loginbox p{
+  padding: 10px 0px 10px 0px;
 }
 
-p{
-  font-family: Arial;
-  font-weight: lighter;
-  font-size: 15px;
-  letter-spacing: 0.1em;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.loginbox input{
+  width: 100%;
+  height: 40px;
 }
 
-a{
-  color: black;
-  font-family: Arial;
-  font-weight: lighter;
-  font-size: 12px;
-  letter-spacing: 0.1em;
+.loginbox input[type="password"]{
+  margin-bottom: 5px;
+}
+
+.loginbox a{
   text-decoration-line: none;
-}
-
-.forgot{
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: right;
-}
-
-
-.loginBox{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: whitesmoke;
-  width: 40%;
-  height: 40%;
-}
-
-.inputs{
-}
-
-input{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 150%;
-  width: 150%;
+  color: black;
   position: relative;
+  left: 222px;
+  font-size: 12px;
 }
-        
 
-button{
- padding-top: 20px;
- padding-bottom: 20px;
- width: 50%;
- height: 20%;
- color: grey;
- border-radius: 10px;
+.loginbox input[type="submit"]{
+  background-color: black;
+  color: white;
+  border-radius: 20px; 
+  margin-left: 0px;
+  margin-top: 15px;
+}
+
+.loginbox input:focus {
+  outline: none !important;
+  border:1px solid grey;
+  box-shadow: 0 0 15px dimgrey;
 }

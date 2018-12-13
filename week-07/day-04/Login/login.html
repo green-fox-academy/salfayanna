@@ -9,35 +9,27 @@
 
 <body>
   <div class='main'>
-    <div class='loginBox'>
+    <div class='loginbox'>
+      <img src="1-2.png" class="avatar">
       <form>
-        <div class='title'>
           <h1>
             ACCOUNT LOGIN
           </h1>
-        </div>
-        <div class='inputs'>
           <p>
             USERNAME
           </p>
-          <input type="text" id="username" name="username" required autofocus>
+          <input type="text" id="username" name="username" minlength="3" maxlength="30" required autofocus>
           <p>
             PASSWORD
           </p>
-          <input type="text" id="password" name="password" required>
-        </div>
-        <div class='forgot'>
-          <a href="servermail@mail.com">
+          <input type="password" id="password" name="password" minlength="6" maxlength="20" pattern="(?!000)([0-6]\d{2}|7([0-6]\d|7[012]))([ -])?(?!00)\d\d\3(?!0000)\d{4}" required>
+          <a href="#">
             Forgot Password?
           </a>
-        </div>
-        <div class='button'>
-          <button type="submit">Login</button>
-        </div>
+          <input type="submit" name="" value="Login">
       </form>
     </div>
   </div>
   <script src="login.js"></script>
 </body>
-
 </html>
