@@ -89,3 +89,15 @@ h1{
   border:1px solid grey;
   box-shadow: 0 0 15px dimgrey;
 }
+
+.loginbox input[type="password"]{
+  background-image: url(eye-slash.svg);
+  background-size: 8%;
+  background-repeat: no-repeat;
+  background-position-y: 8px;
+  background-position-x: 280px;
+}
+
+.pointer{
+  cursor: pointer;
+}
