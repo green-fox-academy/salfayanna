@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: lightgray;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20%;
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.title{
+  text-align: left;
+}
+
+p{
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+a{
+  color: black;
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-decoration-line: none;
+}
+
+.forgot{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: right;
+}
+
+
+.loginBox{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: whitesmoke;
+  width: 40%;
+  height: 40%;
+}
+
+.inputs{
+}
+
+input{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 150%;
+  width: 150%;
+  position: relative;
+}
+        
+
+button{
+ padding-top: 20px;
+ padding-bottom: 20px;
+ width: 50%;
+ height: 20%;
+ color: grey;
+ border-radius: 10px;
+}
