@@ -64,11 +64,8 @@ h1{
   height: 40px;
 }
 
-.loginbox input[type="password"]{
-  margin-bottom: 5px;
-}
-
 .loginbox a{
+  margin-top: 5px;
   text-decoration-line: none;
   color: black;
   position: relative;
@@ -90,14 +87,14 @@ h1{
   box-shadow: 0 0 15px dimgrey;
 }
 
-.loginbox input[type="password"]{
-  background-image: url(eye-slash.svg);
-  background-size: 8%;
-  background-repeat: no-repeat;
-  background-position-y: 8px;
-  background-position-x: 280px;
+.default{
+  cursor: default;
 }
 
-.pointer{
-  cursor: pointer;
+.eye{
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left: 317px;
+  bottom: 34px;
 }

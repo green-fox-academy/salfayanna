@@ -2,24 +2,17 @@
 
 const pic = document.querySelector(".loginbox input[type=password]");
 const login = document.querySelector(".loginbox input[type=submit]");
+const picture = document.querySelector(".eye");
 
-//console.log(pic);
-const style = getComputedStyle(pic)
-//console.log(style.cursor);
-console.log(login);
-
-//console.log(style);
-//console.log(style.backgroundImage);
 let clickevent = () => {
-  if(style.backgroundImage === `url("eye.svg")`){
+  if(pic.type === "password"){
     pic.type = "text";
-    style.backgroundImage = `url("eye-slash.svg")`;
-  } else if(style.backgroundImage === `url("eye-slash.svg")`){
+    picture.src = "./eye-slash.svg";
+  } else if(pic.type === "text"){
     pic.type = "password";
-    style.backgroundImage = `url("eye.svg")`;
+    picture.src = "./eye.svg";
 }
 }
 
-login.addEventListener('mouseover', login.classList.add("pointer"));
-style.backgroundImage.addEventListener('mouseover', login.classList.add("pointer"));
-style.backgroundImage.addEventListener('click', clickevent);
+picture.addEventListener('mouseover', login.classList.add("default"));
+picture.addEventListener('click', clickevent);
