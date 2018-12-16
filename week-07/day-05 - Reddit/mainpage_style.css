@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+*{
+font-family: 'Lato', sans-serif;
+}
+
+body{
+  background-color: lightgrey;
+}
+
+.header{
+  background-image: url("./7eea01a7a420f7bcc39064b7dc9252fd.jpg")
+}
+
+.header{
+  display:flex;
+  margin: 0 auto 0 auto;
+  justify-content: space-around;
+  align-items: center;
+  padding: 80px;
+  max-width: 1200px;
+  height: 100%;
+}
+
+h1{
+color: aliceblue;
+font-weight: lighter;
+letter-spacing: 1.5em;
+font-size: 50px;
+}
