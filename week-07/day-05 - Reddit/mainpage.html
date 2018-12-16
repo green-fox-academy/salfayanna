@@ -4,16 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Workshop: EventListeners</title>
-  <link  rel="stylesheet" type="text/css" href="mainpage_style.css">
+  <link rel="stylesheet" type="text/css" href="mainpage_style.css">
 </head>
 
 <body>
-  <div class="header">
-    <h1>
-      SPACE
-    </h1>
+  <div class="container">
+    <div class="header">
+      <h1>
+        SPACE
+      </h1>
+    </div>
+    <div class="mainText">
+      <div class="posts">
+        <div class="post">
+          <div class="vote">
+            <img src="./upvote.png">
+            <p>0</p>
+            <img src="./downvote.png">
+          </div>
+          <div class="postText">
+            <h2><a href="#">Test Title</a></h2>
+            <p>Posted by:<span class="poster">Anonymus</span> <span class="time"></span></p>
+            <p><span class="modify"><a href="#">Modify</a></span><span class="remove"><a href="#">Remove</a></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="menuItems">
+        <button class="newPostButton">SUBMIT A NEW POST</button>
+        <div class="infoPanel">
+          <p class=infoTitle>ABOUT <span style="color:blue">r/space</span></p>
+          <p class="title">Share & discuss informative content on:</p>
+          <ul class="list">
+            <li>Astrophysics</li>
+            <li>Cosmology</li>
+            <li>Space Exploration</li>
+            <li>Planetary Science</li>
+            <li>Astrobiology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
   <script src="login.js"></script>
 </body>
 

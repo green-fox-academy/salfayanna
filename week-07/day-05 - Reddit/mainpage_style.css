@@ -28,8 +28,111 @@ body{
 }
 
 h1{
-color: aliceblue;
+color: whitesmoke;
 font-weight: lighter;
 letter-spacing: 1.5em;
 font-size: 50px;
 }
+
+.mainText{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px 0 0 0;
+}
+
+.posts{
+  margin: 0 10px 0 10px;
+  width: 100%;
+}
+
+.post{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  background-color: whitesmoke;
+  margin-bottom: 2px;
+}
+
+.vote{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.vote p{
+  padding: 5px;
+  font-weight: bolder;
+  font-size: 20px;
+  color: darkgrey;
+}
+
+.postText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.postText h2 a{
+  text-decoration: none;
+  color:black;
+}
+
+.modify a{
+  text-decoration: none;
+  color:darkgrey;
+  margin-right: 30px;
+}
+
+.remove a{
+  text-decoration: none;
+  color:darkgrey;
+}
+
+.menuItems{
+  min-width: 30%;
+  margin-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.newPostButton{
+  background-color: cornflowerblue;
+  width: 100%;
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.infoPanel{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: whitesmoke;
+}
+
+.infoPanel .infoTitle{
+  background-color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.title{
+  padding-top: 20px;
+  text-align: center;
+}
+
+ul{
+  margin: 15px;
+  padding: 20px;
+  padding-left: 40px;
+}
+
