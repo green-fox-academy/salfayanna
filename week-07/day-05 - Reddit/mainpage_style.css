@@ -29,9 +29,11 @@ body{
 
 h1{
 color: whitesmoke;
+text-align: center;
 font-weight: lighter;
 letter-spacing: 1.5em;
 font-size: 50px;
+margin-right: -1.5em;
 }
 
 .mainText{
@@ -136,3 +138,8 @@ ul{
   padding-left: 40px;
 }
 
+.remove{
+  text-decoration: none;
+  color:darkgrey;
+  margin-right: 30px;
+}
