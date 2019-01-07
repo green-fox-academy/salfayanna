@@ -19,12 +19,23 @@ const cocktails = [
 const alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 // set the view engine to ejs
 
-app.get('/', (req, res) => {
-  res.render('home', {cocktails, alcoholList});
-});
 
 app.get('/', (req, res) => {
-  res.render('home', {cocktails, alcoholList});
+  let renderCocktails = cocktails;
+  //console.log(renderCocktails);
+  //console.log(req.query);
+  if (req.query.alcohol) {
+    //console.log(req.query);
+    renderCocktails = [];
+    cocktails.forEach(element => {
+      if (element.contains.includes(req.query.alcohol)) {
+        renderCocktails.push(element);
+      }
+    })
+  } else if (req.query === 'ALL') {
+    res.render('home', { renderCocktails, alcoholList });
+  }
+  res.render('home', { renderCocktails, alcoholList });
 });
 
 

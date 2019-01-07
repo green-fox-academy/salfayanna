@@ -3,6 +3,43 @@
   margin: 0;
 }
 
+body{
+  font-family: 'Shadows Into Light', cursive;
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 40px;
+}
+
+a{
+  text-decoration: none;
+}
+
+html{
+  background-image: url("./promo295046285.jpg")
+}
+
+table, h1, p{
+color: whitesmoke;
+}
+
+.name{
+  width: 500px;
+}
+
+
 ul{
   list-style-type: none;
+}
+
+.list{
+  margin-top: 10px;
+}
+
+span{
+  margin-right: 10px;
+}
+
+table{
+  margin-top: 30px;
 }
