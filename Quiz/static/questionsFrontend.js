@@ -18,7 +18,7 @@ let data = {};
 let length = 0;
 let questionCounter = 0;
 let correct = 0;
-
+let isNextQuestionLoading = false;
 
 
 let getQuestion = () => {
@@ -44,7 +44,7 @@ let getQuestion = () => {
       answer4.id = data[3].is_correct;
       answer4.removeAttribute("style");
 
-      //console.log(data);
+      isNextQuestionLoading = false;
     }
   }
   xhr.send()
@@ -52,29 +52,35 @@ let getQuestion = () => {
 
 getQuestion();
 
-  answerarray.forEach(element => {
-    element.addEventListener('click', (event) => {
-      event.preventDefault();
+answerarray.forEach(element => {
+  element.addEventListener('click', (event) => {
+    if (isNextQuestionLoading) {
+      return;
+    }
 
-      if (event.target.id === '1' && questionCounter <= 10) {
-        scoreCount++;
-        score.textContent = `Score: ${scoreCount}`;
-        event.target.style.backgroundColor = "green";
-        questionCounter++;
-        correct++;
-        setTimeout(getQuestion, 600);
-      } else if (event.target.id !== '1' && questionCounter <= 10) {
-        event.target.style.backgroundColor = "red";
-        questionCounter++;
-        setTimeout(getQuestion, 600);
-      }
+    event.preventDefault();
 
-      if (questionCounter === 10) {
-        results.innerHTML = `You got ${correct}/10`
-      }
+    isNextQuestionLoading = true;
 
-    })
+    if (event.target.id === '1' && questionCounter <= 10) {
+      scoreCount++;
+      score.textContent = `Score: ${scoreCount}`;
+      event.target.style.backgroundColor = "green";
+      questionCounter++;
+      correct++;
+      setTimeout(getQuestion, 800);
+    } else if (event.target.id !== '1' && questionCounter <= 10) {
+      event.target.style.backgroundColor = "red";
+      questionCounter++;
+      setTimeout(getQuestion, 800);
+    }
+
+    if (questionCounter === 10) {
+      results.innerHTML = `You got ${correct}/10`
+    }
+
   })
+})
 
 
 manage.addEventListener('click', (event) => {
