@@ -18,6 +18,17 @@ app.use(express.json());
 
 app.use('/static', express.static('static'));
 
+  let rowCount = 0;
+  let length = 'SELECT COUNT(id) FROM questions;';
+conn.query(length, (err, max)=> {
+  if(err){
+    console.log(err.message);
+    return;
+  }
+
+  rowCount = (Object.values(max[0])[0]);
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -31,28 +42,17 @@ let getRandomInt = (min, max) => {
 let numbers = [];
 
 app.get('/questionlist', (req, res) => {
-  //   let maxNum = 0;
-  //   let length = 'SELECT COUNT(id) FROM questions;';
-  // conn.query(length, (err, max)=> {
-  //   if(err){
-  //     console.log(err.message);
-  //     return;
-  //   }
-  //   res.json(max);
-  //   maxNum = max;
-  //   console.log(max);
-  // });
 
   let questionNumber = 0;
 
   do {
-    questionNumber = getRandomInt(1, 10);
+    questionNumber = getRandomInt(1, rowCount);
     } while(numbers.includes(questionNumber))
 
   let findNumber = numbers.includes(questionNumber);
   console.log(findNumber);
 
-  if (numbers.length === 10) {
+  if (numbers.length === rowCount) {
     numbers = [];
   }
 
@@ -73,6 +73,24 @@ app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'questions.html'));
 });
 
+app.get('/questions', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'managequestion.html'));
+});
+
+app.get('/allquestions', (req, res) => {
+  let sql = 'SELECT * FROM quizdata.questions LEFT OUTER JOIN quizdata.answers ON quizdata.questions.id = quizdata.answers.question_id;';
+  conn.query(sql, (err, questions) => {
+    if(err){
+      console.log(err.message);
+      return;
+    }
+    res.json(questions);
+  })
+});
+
+app.post('/')
+
+app.delete('/')
 
 app.listen(PORT, () => {
   console.log(`App is listening on port: ${PORT}`);

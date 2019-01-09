@@ -4,7 +4,31 @@
 }
 
 body{
-  background-color: cornflowerblue;
+  background: linear-gradient(274deg, #1ad2a2, #c91ad2, #1ab8d2, #4cd21a);
+background-size: 800% 800%;
+
+-webkit-animation: gradientAnimation 30s ease infinite;
+-moz-animation: gradientAnimation 30s ease infinite;
+animation: gradientAnimation 30s ease infinite;
+}
+
+  @-webkit-keyframes gradientAnimation {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @-moz-keyframes gradientAnimation {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @keyframes gradientAnimation { 
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+
+body{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +37,16 @@ body{
 }
 
 div{
-background-color: blanchedalmond;
 width: 600px;
 height: 550px;
 display:flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+}
+
+.main{
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .start{
@@ -32,13 +59,13 @@ flex-direction: column;
 
 .manage{
   padding: 20px;
-  color: blanchedalmond;
+  color: white;
   font-size: 20px;
 }
 
 h1{
   margin: auto;
-  color: blanchedalmond;
+  color: white;
 }
 
 .answer1, .answer2, .answer3, .answer4{
@@ -51,11 +78,11 @@ h1{
 }
 
 .question{
-  color: cornflowerblue;
+  color: white;
   margin-top: 60px;
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .right{
@@ -64,4 +91,14 @@ h1{
 
 .wrong{
   background-color: red;
+}
+
+.results{
+  color: white;
+  font-size: 40px;
+  margin-bottom: 70px;
+}
+
+.answers{
+  margin-top: 50px;
 }
