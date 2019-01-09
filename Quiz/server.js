@@ -43,17 +43,23 @@ app.get('/questionlist', (req, res) => {
   //   console.log(max);
   // });
 
-  let questionnumber = getRandomInt(1, 10);
-  let findNumber = numbers.find(num => numbers.num === questionnumber);
+  let questionNumber = 0;
+
+  do {
+    questionNumber = getRandomInt(1, 10);
+    } while(numbers.includes(questionNumber))
+
+  let findNumber = numbers.includes(questionNumber);
+  console.log(findNumber);
 
   if (numbers.length === 10) {
     numbers = [];
   }
 
   if (!findNumber) {
-    numbers.push(questionnumber);
+    numbers.push(questionNumber);
     let sql = `SELECT questions.question, answers.id, answers.answer, answers.is_correct FROM questions, answers WHERE questions.id = (?) AND answers.question_id = (?);`
-    conn.query(sql, [questionnumber, questionnumber], (err, data) => {
+    conn.query(sql, [questionNumber, questionNumber], (err, data) => {
       if (err) {
         console.log(err.message);
         return;
