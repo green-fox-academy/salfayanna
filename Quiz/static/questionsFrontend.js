@@ -10,6 +10,13 @@ let answer4 = document.querySelector('.answer4');
 let score = document.querySelector('.score');
 let results = document.querySelector('.results');
 let manage = document.querySelector('.manage');
+let backButton = document.querySelector('.back');
+
+backButton.addEventListener('click', (event)=> {
+  event.preventDefault();
+  //location.href = 'http://localhost:3000/';
+  window.location = 'http://localhost:3000/';
+});
 
 let scoreCount = 0;
 
@@ -62,23 +69,34 @@ answerarray.forEach(element => {
 
     isNextQuestionLoading = true;
 
-    if (event.target.id === '1' && questionCounter <= 10) {
+    if (event.target.id === '1' && questionCounter < 9) {
       scoreCount++;
       score.textContent = `Score: ${scoreCount}`;
       event.target.style.backgroundColor = "green";
       questionCounter++;
       correct++;
       setTimeout(getQuestion, 800);
-    } else if (event.target.id !== '1' && questionCounter <= 10) {
+    } else if (event.target.id !== '1' && questionCounter < 9) {
       event.target.style.backgroundColor = "red";
       questionCounter++;
       setTimeout(getQuestion, 800);
+    } else if (event.target.id === '1' && questionCounter === 9) {
+      scoreCount++;
+      score.textContent = `Score: ${scoreCount}`;
+      event.target.style.backgroundColor = "green";
+      questionCounter++;
+      correct++;
+      //setTimeout(getQuestion, 800);
+    } else if (event.target.id !== '1' && questionCounter === 9) {
+      event.target.style.backgroundColor = "red";
+      questionCounter++;
+      //setTimeout(getQuestion, 800);
     }
 
     if (questionCounter === 10) {
       results.innerHTML = `You got ${correct}/10`
+      backButton.removeAttribute('style');
     }
-
   })
 })
 
@@ -86,4 +104,5 @@ answerarray.forEach(element => {
 manage.addEventListener('click', (event) => {
   window.location = 'http://localhost:3000/questions';
 });
+
  //back to main page button needed

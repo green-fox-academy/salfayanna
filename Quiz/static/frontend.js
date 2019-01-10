@@ -4,9 +4,11 @@ let startButton = document.querySelector('.start');
 let manage = document.querySelector('.manage');
 
 startButton.addEventListener('click', (event) => {
-  window.location = 'http://localhost:3000/game';
+  window.location.reload();
+  window.location.href = 'http://localhost:3000/game';
 });
 
 manage.addEventListener('click', (event) => {
-  window.location = 'http://localhost:3000/questions';
+  window.location.reload();
+  window.location.href = 'http://localhost:3000/questions';
 });
