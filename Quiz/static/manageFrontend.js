@@ -12,17 +12,6 @@ backToGameButton.addEventListener('click', (event) => {
 
 let maintable = document.querySelector('.remove');
 
-let removeData;
-
-// let xhr = new XMLHttpRequest();
-// xhr.open('DELETE', '/api/questions/:id')
-// xhr.onload = () => {
-//   if (xhr.status === 200) {
-//     removeData = JSON.parse(xhr.responseText);
-//     console.log(removeData);
-//   }
-// }
-// xhr.send();
 
 let allQuestionData;
 let allQuestionXhr = new XMLHttpRequest();
@@ -50,10 +39,46 @@ let createDelList = () => {
     
     let delButton = document.createElement('button');
     delButton.classList.add('delButton');
+    delButton.id = element.id;
     delButton.textContent = 'X';
+    
+    delButton.addEventListener('click', (event) => {
+      console.log(event.target.id);
+      let xhr = new XMLHttpRequest();
+      xhr.open('DELETE', `/api/questions/${event.target.id}`)
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+         let removeData = JSON.parse(xhr.responseText);
+          console.log(removeData);
+        }
+      }
+      xhr.send();
+      // sendHttpRequest('DELETE', `/api/questions/${event.target.dataset.id}`, (response) => {
+        //   console.log(event.target.id);
+        // });
+      
+    });
+
     div.appendChild(delButton);
 
     maintable.appendChild(div);
   });
+
+  // const sendHttpRequest = (method, url, callback) => {
+  //   const xmlRequest = new XMLHttpRequest();
+  //   xmlRequest.open(method, url);
+  //   xmlRequest.onload = () => {
+  //     if (xmlRequest.status === 200) {
+  //       callback(JSON.parse(xmlRequest.responseText));
+  //     }
+  //   }
+  //   xmlRequest.send();
+  // };
   
+  // let removeData;
+  
+
+
 }
+
+

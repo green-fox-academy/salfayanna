@@ -105,17 +105,61 @@ app.post('/api/questions', (req, res) => {
   let answerInsertSql = `INSERT INTO answers (answer, iscorrect) VALUES (?, ?), (?, ?), (?, ?), (?, ?);`
 
   conn.query(answerInsertSql, [data.insertId, answer1, data.insertId, answer2, data.insertId, answer3, data.insertId, answer4], (err, answerData) => {
-    if(err){
+    if (err) {
       console.log(err.message);
       return;
     }
-    res.status(200).json({message: 'Succesfully added to database'});
+    res.status(200).json({ message: 'Succesfully added to database' });
   })
 })
 
-// app.delete('/api/questions/:id', (req, res)=>{
+app.delete('/api/questions/:id', (req, res) => {
+  let { id } = req.params;
+  // let deleteId = 'SELECT * FROM questions;';
 
-// })
+  // conn.query(deleteId, (err, deleteResponse) => {
+  //   if (err) {
+  //     console.log(err.message);
+  //     return;
+  //   }
+
+  //   let idChecker = deleteResponse.find(resData => resData.id === `${id}`);
+
+  //   if (!idChecker) {
+  //     res.status(404).json({
+  //       error: "Id not found"
+  //     });
+  //     return;
+  //   } else {
+      let deleteREQ = 'DELETE FROM questions WHERE id = (?);'
+
+      conn.query(deleteREQ, [id], (err, delRes) => {
+        if (err) {
+          console.log(err.message);
+          return;
+        } else {
+          res.status(204).json({
+            message: 'Successfully deleted'
+          })
+        }
+      })
+
+      let deleteREQAnswer = 'DELETE FROM answers WHERE question_id = (?);'
+
+      conn.query(deleteREQAnswer, [id], (err, delRes) => {
+        if (err) {
+          console.log(err.message);
+          return;
+        } else {
+          res.status(204).json({
+            message: 'Successfully deleted'
+          })
+        }
+      })
+
+    }
+  )
+//})
 
 app.listen(PORT, () => {
   console.log(`App is listening on port: ${PORT}`);
