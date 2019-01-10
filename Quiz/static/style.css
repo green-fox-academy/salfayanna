@@ -45,7 +45,7 @@ align-items: center;
 flex-direction: column;
 }
 
-.main{
+.main, .add, .remove{
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -107,5 +107,22 @@ h1{
   color: white;
 }
 
-.pressToDelete{
+.add{
+  width: 70%;
+}
+
+.remove{
+  margin-bottom: 100px;
+}
+
+.question{
+  font-size: 20px;
+}
+
+.remove{
+  padding: 50px;
+}
+
+.removelist{
+  padding: 30px;
 }

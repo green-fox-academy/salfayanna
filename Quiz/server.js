@@ -18,10 +18,10 @@ app.use(express.json());
 
 app.use('/static', express.static('static'));
 
-  let rowCount = 0;
-  let length = 'SELECT COUNT(id) FROM questions;';
-conn.query(length, (err, max)=> {
-  if(err){
+let rowCount = 0;
+let length = 'SELECT COUNT(id) FROM questions;';
+conn.query(length, (err, max) => {
+  if (err) {
     console.log(err.message);
     return;
   }
@@ -47,7 +47,7 @@ app.get('/questionlist', (req, res) => {
 
   do {
     questionNumber = getRandomInt(1, rowCount);
-    } while(numbers.includes(questionNumber))
+  } while (numbers.includes(questionNumber))
 
   let findNumber = numbers.includes(questionNumber);
   console.log(findNumber);
@@ -74,14 +74,15 @@ app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'questions.html'));
 });
 
-app.get('/questions', (req, res) =>{
+app.get('/questions', (req, res) => {
   res.sendFile(path.join(__dirname, 'managequestion.html'));
 });
 
 app.get('/allquestions', (req, res) => {
-  let sql = 'SELECT * FROM quizdata.questions LEFT OUTER JOIN quizdata.answers ON quizdata.questions.id = quizdata.answers.question_id;';
+  //let sql = 'SELECT * FROM quizdata.questions LEFT OUTER JOIN quizdata.answers ON quizdata.questions.id = quizdata.answers.question_id;';
+  let sql = 'select * FROM questions;'
   conn.query(sql, (err, questions) => {
-    if(err){
+    if (err) {
       console.log(err.message);
       return;
     }
@@ -89,9 +90,32 @@ app.get('/allquestions', (req, res) => {
   })
 });
 
-app.post('/')
+app.post('/api/questions', (req, res) => {
+  let { question, answer1, answer2, answer3, answer4, isCorrect } = req.body;
+  let questionInsertSql = `INSERT INTO questions (question) VALUES (?);`;
 
-app.delete('/')
+  conn.query(questionInsertSql, [question], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      return;
+    }
+    res.json(data);
+  })
+
+  let answerInsertSql = `INSERT INTO answers (answer, iscorrect) VALUES (?, ?), (?, ?), (?, ?), (?, ?);`
+
+  conn.query(answerInsertSql, [data.insertId, answer1, data.insertId, answer2, data.insertId, answer3, data.insertId, answer4], (err, answerData) => {
+    if(err){
+      console.log(err.message);
+      return;
+    }
+    res.status(200).json({message: 'Succesfully added to database'});
+  })
+})
+
+// app.delete('/api/questions/:id', (req, res)=>{
+
+// })
 
 app.listen(PORT, () => {
   console.log(`App is listening on port: ${PORT}`);
