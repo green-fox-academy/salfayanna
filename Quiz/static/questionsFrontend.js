@@ -14,7 +14,6 @@ let backButton = document.querySelector('.back');
 
 backButton.addEventListener('click', (event)=> {
   event.preventDefault();
-  //location.href = 'http://localhost:3000/';
   window.location = 'http://localhost:3000/';
 });
 
@@ -33,8 +32,6 @@ let getQuestion = () => {
   xhr.onload = () => {
     if (xhr.status === 200) {
       data = JSON.parse(xhr.responseText);
-      //length = Object.keys(data).length;
-      //console.log(data[0].question);
       question.textContent = data[0].question;
 
 
@@ -86,11 +83,9 @@ answerarray.forEach(element => {
       event.target.style.backgroundColor = "green";
       questionCounter++;
       correct++;
-      //setTimeout(getQuestion, 800);
     } else if (event.target.id !== '1' && questionCounter === 9) {
       event.target.style.backgroundColor = "red";
       questionCounter++;
-      //setTimeout(getQuestion, 800);
     }
 
     if (questionCounter === 10) {

@@ -70,6 +70,7 @@ app.get('/questionlist', (req, res) => {
 });
 
 app.get('/game', (req, res) => {
+  numbers = [];
   res.sendFile(path.join(__dirname, 'questions.html'));
 });
 

@@ -16,25 +16,29 @@
     <div class="remove">
       <table>
         <tbody>
-          <tr></tr>
+          <tr>
+            <th class="questionToDelete"></th>
+            <th><button class="pressToDelete"></button></th>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <div class="add">
       <form action="">
-        <input type="text"><br><br>
-        <span> <input type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
-        <span> <input type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
-        <span> <input type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
-        <span> <input type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
+        <input class="questionToAdd" type="text"><br><br>
+        <span> <input class="rightanswer" type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
+        <span> <input class="rightanswer" type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
+        <span> <input class="rightanswer" type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
+        <span> <input class="rightanswer" type="text"> &nbsp; <input type="radio" name="rightanswer"></span><br>
       </form>
     </div>
 
-    <p class="manage">
+    <p class="backToGame">
       Go back to the game
     </p>
   </div>
+  <script src="./static/manageFrontend.js"></script>
 </body>
 
 </html>
