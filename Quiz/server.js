@@ -91,75 +91,66 @@ app.get('/allquestions', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
-  let { question, answer1, answer2, answer3, answer4, isCorrect } = req.body;
+  let { thequestion, answer1, answer2, answer3, answer4, correctanswer } = req.body;
   let questionInsertSql = `INSERT INTO questions (question) VALUES (?);`;
 
-  conn.query(questionInsertSql, [question], (err, data) => {
+  conn.query(questionInsertSql, [thequestion], (err, resData) => {
     if (err) {
       console.log(err.message);
       return;
     }
-    res.json(data);
+
+    let data = resData.insertId;
+
+    let answerInsertSql = `INSERT INTO answers (question_id, answer, is_correct) VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?);`;
+
+    conn.query(answerInsertSql,
+      [data, answer1, correctanswer === '1' ? '1' : '0', // If correct answer is 1, we put 1 if true and 0 if false
+        data, answer2, correctanswer === '2' ? '1' : '0',
+        data, answer3, correctanswer === '3' ? '1' : '0',
+        data, answer4, correctanswer === '4' ? '1' : '0'], (err, answerData) => {
+          if (err) {
+            console.log(err.message);
+            return;
+          }
+          //res.status(200).json({ message: 'Succesfully added to database' });
+        })
   })
 
-  let answerInsertSql = `INSERT INTO answers (answer, iscorrect) VALUES (?, ?), (?, ?), (?, ?), (?, ?);`
-
-  conn.query(answerInsertSql, [data.insertId, answer1, data.insertId, answer2, data.insertId, answer3, data.insertId, answer4], (err, answerData) => {
-    if (err) {
-      console.log(err.message);
-      return;
-    }
-    res.status(200).json({ message: 'Succesfully added to database' });
-  })
+  res.send('ok');
 })
 
 app.delete('/api/questions/:id', (req, res) => {
   let { id } = req.params;
-  // let deleteId = 'SELECT * FROM questions;';
 
-  // conn.query(deleteId, (err, deleteResponse) => {
-  //   if (err) {
-  //     console.log(err.message);
-  //     return;
-  //   }
+  let deleteREQ = 'DELETE FROM questions WHERE id = (?);'
 
-  //   let idChecker = deleteResponse.find(resData => resData.id === `${id}`);
-
-  //   if (!idChecker) {
-  //     res.status(404).json({
-  //       error: "Id not found"
-  //     });
-  //     return;
-  //   } else {
-      let deleteREQ = 'DELETE FROM questions WHERE id = (?);'
-
-      conn.query(deleteREQ, [id], (err, delRes) => {
-        if (err) {
-          console.log(err.message);
-          return;
-        } else {
-          res.status(204).json({
-            message: 'Successfully deleted'
-          })
-        }
+  conn.query(deleteREQ, [id], (err, delRes) => {
+    if (err) {
+      console.log(err.message);
+      return;
+    } else {
+      res.status(204).json({
+        message: 'Successfully deleted'
       })
-
-      let deleteREQAnswer = 'DELETE FROM answers WHERE question_id = (?);'
-
-      conn.query(deleteREQAnswer, [id], (err, delRes) => {
-        if (err) {
-          console.log(err.message);
-          return;
-        } else {
-          res.status(204).json({
-            message: 'Successfully deleted'
-          })
-        }
-      })
-
     }
-  )
-//})
+  })
+
+  let deleteREQAnswer = 'DELETE FROM answers WHERE question_id = (?);'
+
+  conn.query(deleteREQAnswer, [id], (err, delRes) => {
+    if (err) {
+      console.log(err.message);
+      return;
+    } else {
+      res.status(204).json({
+        message: 'Successfully deleted'
+      })
+    }
+  })
+
+}
+)
 
 app.listen(PORT, () => {
   console.log(`App is listening on port: ${PORT}`);

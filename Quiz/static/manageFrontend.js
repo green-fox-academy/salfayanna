@@ -1,13 +1,12 @@
 'use strict'
 
+let form = document.querySelector('form');
+
 let backToGameButton = document.querySelector('.backToGame');
 
 backToGameButton.addEventListener('click', (event) => {
   event.preventDefault();
   window.location = 'http://localhost:3000/';
-  // let xhr = new XMLHttpRequest();
-  // xhr.open('GET', '/');
-  // xhr.send();
 })
 
 let maintable = document.querySelector('.remove');
@@ -31,32 +30,29 @@ let createDelList = () => {
     let div = document.createElement('div');
     div.id = element.id;
     div.classList.add('removelist');
-    
+
     let question = document.createElement('p');
     question.classList.add('question');
     question.textContent = element.question;
     div.appendChild(question);
-    
+
     let delButton = document.createElement('button');
     delButton.classList.add('delButton');
     delButton.id = element.id;
     delButton.textContent = 'X';
-    
+
     delButton.addEventListener('click', (event) => {
       console.log(event.target.id);
       let xhr = new XMLHttpRequest();
       xhr.open('DELETE', `/api/questions/${event.target.id}`)
       xhr.onload = () => {
         if (xhr.status === 200) {
-         let removeData = JSON.parse(xhr.responseText);
+          let removeData = JSON.parse(xhr.responseText);
           console.log(removeData);
         }
       }
       xhr.send();
-      // sendHttpRequest('DELETE', `/api/questions/${event.target.dataset.id}`, (response) => {
-        //   console.log(event.target.id);
-        // });
-      
+
     });
 
     div.appendChild(delButton);
@@ -64,21 +60,42 @@ let createDelList = () => {
     maintable.appendChild(div);
   });
 
-  // const sendHttpRequest = (method, url, callback) => {
-  //   const xmlRequest = new XMLHttpRequest();
-  //   xmlRequest.open(method, url);
-  //   xmlRequest.onload = () => {
-  //     if (xmlRequest.status === 200) {
-  //       callback(JSON.parse(xmlRequest.responseText));
-  //     }
-  //   }
-  //   xmlRequest.send();
-  // };
-  
-  // let removeData;
-  
-
-
 }
+
+form.onsubmit = (event) => {
+  event.preventDefault();
+  const { thequestion, answer1, answer2, answer3, answer4, correctanswer} = form.elements;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/api/questions');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    thequestion: thequestion.value,
+    answer1: answer1.value,
+    answer2: answer2.value,
+    answer3: answer3.value,
+    answer4: answer4.value,
+    correctanswer: correctanswer.value
+  }));
+
+  xhr.onload = () => {
+    const res = JSON.parse(xhr.responseText);
+    console.log(res);
+  }
+}
+
+
+
+// submitButton.addEventListener('submit', (event)=> {
+//   let postXHR = new XMLHttpRequest();
+
+//   postXHR.open('POST', '/api/questions');
+//   postXHR.setRequestHeader('Content-Type', 'application/json');
+//   postXHR.send(JSON.stringify({
+
+//   }));
+
+
+//})
 
 
